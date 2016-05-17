@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>NUnit3Tracing.SpecFlowPlugin</id>
+    <version>1.0.0-alpha</version>
+    <title>NUnit3Tracing.SpecFlowPlugin</title>
+    <authors>TechTalk</authors>
+    <owners>TechTalk</owners>
+    <description>A plugin to allow custom trace output for NUnit parallel test reporting.</description>
+    <language>en-US</language>
+    <projectUrl>http://www.specflow.org</projectUrl>
+    <licenseUrl>http://go.specflow.org/license</licenseUrl>
+    <iconUrl>http://go.specflow.org/specflow-nuget-icon</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+  </metadata>
+  <files>
+    <file src="..\..\..\Installer\SpecFlowBinPackage\bin\package\lib\NUnit3Tracing.SpecFlowPlugin.dll" target="lib\net45" />
+  </files>
+</package>

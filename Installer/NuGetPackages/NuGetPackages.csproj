@@ -50,6 +50,9 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="NUnit3Tracing.SpecFlowPlugin.nuspec">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="SpecFlow.CustomPlugin.nuspec">
       <SubType>Designer</SubType>
     </None>
@@ -93,6 +96,9 @@
     <CreateSpecFlowMsTestPackageCommand>
       "$(SolutionDir)packages\NuGet.CommandLine.$(NuGetVersion)\tools\NuGet.exe" pack "$(TargetDir)SpecFlow.MsTest.nuspec" -o "$(TargetDir)." -Verbosity detailed -NoPackageAnalysis $(NuGetVersionSpec)
     </CreateSpecFlowMsTestPackageCommand>
+    <CreateNUnit3TracingSpecFlowPluginPackageCommand>
+      "$(SolutionDir)packages\NuGet.CommandLine.$(NuGetVersion)\tools\NuGet.exe" pack "$(TargetDir)NUnit3Tracing.SpecFlowPlugin.nuspec" -o "$(TargetDir)." -Verbosity detailed -NoPackageAnalysis $(NuGetVersionSpec)
+    </CreateNUnit3TracingSpecFlowPluginPackageCommand>
   </PropertyGroup>
   <Target Name="AfterBuild">
     <ItemGroup>
@@ -101,11 +107,7 @@
     <Copy SourceFiles="@(NuSpecFiles)" DestinationFolder="$(TargetDir)" OverwriteReadOnlyFiles="true">
       <Output TaskParameter="CopiedFiles" ItemName="NuSpecTargetDirFiles" />
     </Copy>
-    <XmlPoke Condition="'$(SpecFlowPackageVersion)' != ''" 
-             XmlInputPath="%(NuSpecTargetDirFiles.FullPath)"
-             Namespaces="&lt;Namespace Prefix='ng' Uri='http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd' /&gt;" 
-             Query="//ng:dependency[@id='SpecFlow']/@version" 
-             Value="[$(SpecFlowPackageVersion)]" />
+    <XmlPoke Condition="'$(SpecFlowPackageVersion)' != ''" XmlInputPath="%(NuSpecTargetDirFiles.FullPath)" Namespaces="&lt;Namespace Prefix='ng' Uri='http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd' /&gt;" Query="//ng:dependency[@id='SpecFlow']/@version" Value="[$(SpecFlowPackageVersion)]" />
     <XmlPoke Condition="'$(SpecFlowPackageVersion)' != ''" XmlInputPath="$(TargetDir)SpecFlow.NUnit.Runners.nuspec" Namespaces="&lt;Namespace Prefix='ng' Uri='http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd' /&gt;" Query="//ng:dependency[@id='SpecFlow.NUnit']/@version" Value="[$(SpecFlowPackageVersion)]" />
     <Exec Command="$(CreateSpecFlowPackageCommand)" />
     <Exec Command="$(CreateSpecFlowCustomPluginPackageCommand)" />
@@ -113,5 +115,6 @@
     <Exec Command="$(CreateSpecFlowNUnitRunnersPackageCommand)" />
     <Exec Command="$(CreateSpecFlowxUnitPackageCommand)" />
     <Exec Command="$(CreateSpecFlowMsTestPackageCommand)" />
+    <Exec Command="$(CreateNUnit3TracingSpecFlowPluginPackageCommand)" />
   </Target>
 </Project>

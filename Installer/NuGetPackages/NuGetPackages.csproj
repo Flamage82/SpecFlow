@@ -46,6 +46,9 @@
     <None Include="MsTest\App.config.transform" />
     <None Include="NUnit.Runners\Install.ps1" />
     <None Include="NUnit.Runners\Uninstall.ps1" />
+    <None Include="FeatureBaseClassGenerator.SpecFlowPlugin.nuspec">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="NUnit\App.config.transform" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
@@ -99,6 +102,9 @@
     <CreateNUnit3TracingSpecFlowPluginPackageCommand>
       "$(SolutionDir)packages\NuGet.CommandLine.$(NuGetVersion)\tools\NuGet.exe" pack "$(TargetDir)NUnit3Tracing.SpecFlowPlugin.nuspec" -o "$(TargetDir)." -Verbosity detailed -NoPackageAnalysis $(NuGetVersionSpec)
     </CreateNUnit3TracingSpecFlowPluginPackageCommand>
+    <CreateFeatureBaseClassGeneratorSpecFlowPluginPackageCommand>
+      "$(SolutionDir)packages\NuGet.CommandLine.$(NuGetVersion)\tools\NuGet.exe" pack "$(TargetDir)FeatureBaseClassGenerator.SpecFlowPlugin.nuspec" -o "$(TargetDir)." -Verbosity detailed -NoPackageAnalysis $(NuGetVersionSpec)
+    </CreateFeatureBaseClassGeneratorSpecFlowPluginPackageCommand>
   </PropertyGroup>
   <Target Name="AfterBuild">
     <ItemGroup>
@@ -116,5 +122,6 @@
     <Exec Command="$(CreateSpecFlowxUnitPackageCommand)" />
     <Exec Command="$(CreateSpecFlowMsTestPackageCommand)" />
     <Exec Command="$(CreateNUnit3TracingSpecFlowPluginPackageCommand)" />
+    <Exec Command="$(CreateFeatureBaseClassGeneratorSpecFlowPluginPackageCommand)" />
   </Target>
 </Project>

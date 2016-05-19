@@ -13,7 +13,7 @@ namespace FeatureBaseClassGenerator.SpecFlowPlugin
 
         public void RegisterCustomizations(ObjectContainer container, SpecFlowProjectConfiguration generatorConfiguration)
         {
-            container.RegisterTypeAs<FeatureBaseClassGeneratorProvider, IUnitTestGeneratorProvider>("nunit");
+            container.RegisterTypeAs<FeatureBaseClassGeneratorProvider, IUnitTestGeneratorProvider>();
         }
 
         public void RegisterConfigurationDefaults(SpecFlowProjectConfiguration specFlowConfiguration)

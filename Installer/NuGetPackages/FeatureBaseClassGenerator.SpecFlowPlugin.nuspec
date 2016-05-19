@@ -14,6 +14,6 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
   </metadata>
   <files>
-    <file src="..\..\..\Installer\SpecFlowBinPackage\bin\package\lib\FeatureBaseClassGenerator.SpecFlowPlugin.dll" target="lib\net45" />
+    <file src="..\..\..\Installer\SpecFlowBinPackage\bin\package\tools\FeatureBaseClassGenerator.SpecFlowPlugin.dll" target="tools" />
   </files>
 </package>
